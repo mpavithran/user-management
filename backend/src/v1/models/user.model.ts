@@ -1,7 +1,7 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
 import db from "../config/db.config";
 
-export class Contact extends Model {
+export class User extends Model {
   public id!: number;
   public password?: string;
   public email?: string;
@@ -11,7 +11,7 @@ export class Contact extends Model {
   public status!: 0 | 1;
 }
 
-export const Contacts = Contact.init(
+export const Users = User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -40,6 +40,10 @@ export const Contacts = Contact.init(
     },
     deletedAt: {
       type: DataTypes.DATE,
+      allowNull: true,
+    },
+    refreshToken: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     status: {
