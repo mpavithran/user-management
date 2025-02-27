@@ -6,6 +6,10 @@ import { registerUser } from "../controllers/user.controller";
 
 const userRouter = express.Router();
 
-userRouter.post("/identify", validator(userSchema.registerUser), registerUser);
+userRouter.post(
+  "/registerUser",
+  validator(userSchema.registerUser),
+  registerUser
+);
 
 export default userRouter;
